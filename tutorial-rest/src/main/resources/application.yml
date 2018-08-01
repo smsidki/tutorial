@@ -1,0 +1,8 @@
+spring:
+  output:
+    ansi:
+      enabled: never
+server:
+  port: 8383
+  servlet:
+    context-path: /tutorial
