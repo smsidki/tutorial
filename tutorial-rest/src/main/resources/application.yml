@@ -2,6 +2,16 @@ spring:
   output:
     ansi:
       enabled: never
+  datasource:
+    url: jdbc:mysql://localhost/tutorial?useSSL=false
+    username: tutorial
+    password: tutorial
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    properties:
+      hibernate-dilaect: org.hibernate.dialect.MySQLInnoDBDialect
+    hibernate:
+      ddl-auto: update
 server:
   port: 8383
   servlet:
