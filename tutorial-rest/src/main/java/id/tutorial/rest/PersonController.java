@@ -27,6 +27,15 @@ public class PersonController {
 		return savedPerson.getFirstName() + " " + savedPerson.getLastName();
 	}
 	
+	@PostMapping("/edit")
+	public String editPerson(@RequestBody Person person) {
+		Person existing = personRepo.getOne(person.getId());
+		existing.setFirstName(person.getFirstName());
+		existing.setLastName(person.getLastName());
+		personRepo.save(existing);
+		return existing.getFirstName() + " " + existing.getLastName();
+	}
+	
 	@GetMapping("/search")
 	public List<String> getPerson(@RequestParam String firstName) {
 		List<Person> persons = personRepo.findByFirstName(firstName);
