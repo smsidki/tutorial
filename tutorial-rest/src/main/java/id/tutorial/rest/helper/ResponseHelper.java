@@ -10,6 +10,8 @@ import id.tutorial.rest.dto.Response;
 
 public class ResponseHelper {
 	
+	private ResponseHelper() {}
+	
 	public static <T> Response<T> ok(T data) {
 		Response<T> response = new Response<>();
 		response.setStatus(HttpStatus.OK.name());
