@@ -53,15 +53,11 @@ public class PersonController {
 	public Response getPerson(@RequestParam String firstName, Pageable pageable) {
 		Page<Person> persons = personRepo.findByFirstName(firstName, pageable);
 		
-		if(!persons.hasContent() && !persons.isFirst()) {
+		if(PageHelper.isEmptyOnlyOnThisPage(persons)) {
 			persons = personRepo.findByFirstName(firstName, PageRequest.of(persons.getTotalPages() - 1, persons.getSize(), persons.getSort()));
 		}
 		
-		List<PersonResponse> personData = persons.getContent().stream()
-			.map(person -> new PersonResponse(person.getFirstName(), person.getLastName()))
-			.collect(Collectors.toList());
-		Page<PersonResponse> personResponse = new PageImpl<>(personData, persons.getPageable(), persons.getTotalElements());
-		return ResponseHelper.ok(personResponse);
+		return ResponseHelper.ok(convertToPersonResponse(persons));
 	}
 	
 	@PostMapping("/search-dsl")
