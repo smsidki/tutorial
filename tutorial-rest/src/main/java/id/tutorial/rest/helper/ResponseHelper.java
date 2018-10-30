@@ -8,9 +8,14 @@ import org.springframework.http.HttpStatus;
 import id.tutorial.rest.dto.Paging;
 import id.tutorial.rest.dto.Response;
 
+@SuppressWarnings("rawtypes")
 public class ResponseHelper {
 	
 	private ResponseHelper() {}
+	
+	public static Response ok() {
+		return ok("No Content");
+	}
 	
 	public static <T> Response<T> ok(T data) {
 		Response<T> response = new Response<>();
