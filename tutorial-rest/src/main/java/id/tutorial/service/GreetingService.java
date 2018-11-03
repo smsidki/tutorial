@@ -11,6 +11,7 @@ public class GreetingService {
 	
 	@Async
 	public void doSomeHeavyMethod() {
+		log.info(Thread.currentThread().getName());
 		try {
 			Thread.sleep(3000L);
 		} catch (InterruptedException e) {
