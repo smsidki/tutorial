@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import id.tutorial.event.Memo;
 import id.tutorial.rest.dto.Response;
 import id.tutorial.rest.helper.ResponseHelper;
+import id.tutorial.service.GreetingService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -20,9 +21,11 @@ import lombok.RequiredArgsConstructor;
 public class GreetingController {
 	
 	private final ApplicationEventPublisher publisher;
+	private final GreetingService greetingService;
 	
 	@GetMapping("/hello")
 	public Response hello() {
+		greetingService.doSomeHeavyMethod();
 		return ResponseHelper.ok("Hello World");
 	}
 	
