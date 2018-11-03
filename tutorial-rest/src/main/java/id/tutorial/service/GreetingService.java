@@ -13,10 +13,11 @@ import lombok.extern.slf4j.Slf4j;
 public class GreetingService {
 
 	@Async
-	public void doSomeHeavyMethod() {
+	public void doSomeHeavyMethod(String number) {
 		log.info(Thread.currentThread().getName());
 		try {
 			Thread.sleep(3000L);
+			Integer.parseInt(number);
 		} catch (InterruptedException e) {
 			log.error(e.getMessage(), e);
 			Thread.currentThread().interrupt();

@@ -26,7 +26,7 @@ public class GreetingController {
 	
 	@GetMapping("/hello")
 	public Response hello() throws InterruptedException, ExecutionException {
-		greetingService.doSomeHeavyMethod();
+		greetingService.doSomeHeavyMethod("twenty one");
 		String message = greetingService.generateGreetingMessage().get();
 		return ResponseHelper.ok(message);
 	}
