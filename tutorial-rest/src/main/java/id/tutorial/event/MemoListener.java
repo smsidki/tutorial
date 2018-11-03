@@ -17,6 +17,8 @@ public class MemoListener {
 	@Async
 	@EventListener
 	public void showMemo(Memo memo) throws InterruptedException {
+		log.info("{} - {}", this.getClass().getSimpleName(), Thread.currentThread().getName());
+		
 		Thread.sleep(3000L);
 		
 		log.info("Hi {}, please meet me at {} on {}.", memo.getPerson(), DTF.format(memo.getTime()), memo.getLocation());
