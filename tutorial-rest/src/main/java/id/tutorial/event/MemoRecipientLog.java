@@ -10,7 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 public class MemoRecipientLog {
 	
 	@EventListener
-	public void showLog(Memo memo) {
+	public void showLog(Memo memo) throws InterruptedException {
+		Thread.sleep(7000L);
 		log.info("A memo just sent to {}", memo.getPerson());
 	}
 
