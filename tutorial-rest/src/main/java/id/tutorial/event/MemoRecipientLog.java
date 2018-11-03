@@ -11,6 +11,7 @@ public class MemoRecipientLog {
 	
 	@EventListener
 	public void showLog(Memo memo) throws InterruptedException {
+		log.info("{} - {}", this.getClass().getSimpleName(), Thread.currentThread().getName());
 		Thread.sleep(7000L);
 		log.info("A memo just sent to {}", memo.getPerson());
 	}
