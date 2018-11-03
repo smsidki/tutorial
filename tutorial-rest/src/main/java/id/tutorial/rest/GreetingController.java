@@ -1,6 +1,7 @@
 package id.tutorial.rest;
 
 import java.time.LocalTime;
+import java.util.concurrent.ExecutionException;
 
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +25,10 @@ public class GreetingController {
 	private final GreetingService greetingService;
 	
 	@GetMapping("/hello")
-	public Response hello() {
+	public Response hello() throws InterruptedException, ExecutionException {
 		greetingService.doSomeHeavyMethod();
-		return ResponseHelper.ok("Hello World");
+		String message = greetingService.generateGreetingMessage().get();
+		return ResponseHelper.ok(message);
 	}
 	
 	@GetMapping("/memo")
