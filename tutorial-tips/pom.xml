@@ -46,5 +46,35 @@
                 </executions>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <springProfile>dev</springProfile>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>staging</id>
+            <properties>
+                <springProfile>staging</springProfile>
+            </properties>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <springProfile>production</springProfile>
+            </properties>
+        </profile>
+    </profiles>
 </project>
