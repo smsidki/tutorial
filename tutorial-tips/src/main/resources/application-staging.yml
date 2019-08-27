@@ -1,3 +1,8 @@
 db:
   username: uat
   password: uat
+
+server:
+  port: 8100
+  servlet:
+    context-path: /tips

@@ -1,6 +1,6 @@
 db:
-  username: 4dMint
-  password: p455w0RD
+  username: admin
+  password: admin
 
 server:
   port: 8100
