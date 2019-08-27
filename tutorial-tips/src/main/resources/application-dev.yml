@@ -6,3 +6,10 @@ server:
   port: 8100
   servlet:
     context-path: /tips
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: tutorial_tips
