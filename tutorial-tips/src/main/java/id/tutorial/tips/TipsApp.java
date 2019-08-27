@@ -18,7 +18,8 @@ public class TipsApp {
 	}
 	
 	@EventListener(ApplicationReadyEvent.class)
-	public void showDatabaseInfo() {
+	public void showAppInfo() {
+		System.out.println(env.getProperty("app.version"));
 		System.out.println(env.getProperty("db.username"));
 		System.out.println(env.getProperty("db.password"));
 	}
