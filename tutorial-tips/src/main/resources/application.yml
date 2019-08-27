@@ -1,6 +1,3 @@
 spring:
   profiles:
     active: dev
-  data:
-    mongodb:
-      uri: mongodb://10.10.8.99:27017/tutorial_tips
